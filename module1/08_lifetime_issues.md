@@ -6,7 +6,7 @@ ___
 
 ## Exercise
 
-### `dangling.cpp`
+### `05_dangling.cpp`
 
 Fix the code.
 
@@ -28,7 +28,7 @@ ___
 
 ## Exercise
 
-### `synchronization.cpp`
+### `06_synchronization.cpp`
 
 Fix `generateContainer()` function.
 

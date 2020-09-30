@@ -35,7 +35,7 @@ ___
 
 ## Exercise
 
-### `sfinae.cpp`
+### `07_sfinae.cpp`
 
 Write a function `insert()` that allows inserting objects of class derived from Circle to be inserted into collection. Usage:
 
@@ -79,4 +79,3 @@ ___
 
 * SFINAE does not compile (or does not generate an additional overload) for improper types, `constexpr if` does nothing
 * Lambda is an object with some lifetime, function is not an object (in C++)
-
