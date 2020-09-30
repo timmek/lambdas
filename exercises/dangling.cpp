@@ -15,7 +15,7 @@ int getFive() {
 
 int main() {
     auto generator = getIndexGenerator();
-    int value = getFive();
+    [[maybe_unused]] int value = getFive();
     for (int i = 0; i < 10; ++i) {
         std::cout << generator();
     }

@@ -6,47 +6,37 @@
 
 ___
 
-## 1. What is the type of variable `v`?
+## 1. Which lambda function is valid?
 
-```cpp
-int i = 42;
-const auto v = &i;
-```
+1. <!-- .element: class="fragment highlight-green" --> <code>[]() -> int { return 4; };</code>
+1. <!-- .element: class="fragment highlight-red" --> <code>int [](){ return 4; };</code>
+1. <!-- .element: class="fragment highlight-red" --> <code>auto [](){ return 4; };</code>
+1. <!-- .element: class="fragment highlight-green" --> <code>[]() -> auto {return 4; };</code>
+1. <!-- .element: class="fragment highlight-green" --> <code>[](){ return 4; };</code>
+1. <!-- .element: class="fragment highlight-green" --> <code>[] { return 4; }</code>
+1. <!-- .element: class="fragment highlight-red" --> <code>[] mutable { return 4; }</code>
+1. <!-- .element: class="fragment highlight-red" --> <code>[] -> int { return 4; }</code>
+1. <!-- .element: class="fragment highlight-red" --> <code>int []{ return 4; }</code>
 
-1. <!-- .element: class="fragment highlight-red" --> <code>const int</code>
-1. <!-- .element: class="fragment highlight-red" --> <code>const int&</code>
-1. <!-- .element: class="fragment highlight-green" --> <code>const int*</code>
-1. <!-- .element: class="fragment highlight-red" --> other
-
-___
-
-## 2. Which of the following initializations are valid in C++14?
-
-```cpp
-struct P { int a, b };
-```
-
-1. <!-- .element: class="fragment highlight-green" --> <code>int values[] = { 1, 2, 3, 4, 5 };</code>
-1. <!-- .element: class="fragment highlight-green" --> <code>P v = { 1, 4 };</code>
-1. <!-- .element: class="fragment highlight-green" --> <code>P v{1, 4};</code>
-1. <!-- .element: class="fragment highlight-red" --> <code>P v(1, 4);</code>
-1. <!-- .element: class="fragment highlight-green" --> <code>std::vector&lt;int> v = { 1, 2, 3, 4 };</code>
-1. <!-- .element: class="fragment highlight-red" --> <code>std::vector&lt;int> v(1, 2, 3, 4);</code>
-1. <!-- .element: class="fragment highlight-red" --> <code>int v[] = { 1, 3, 5, 6.6 };</code>
+Note: 1, 4, 5, 6
 
 ___
 
-## 3. Which of the following elements can be defined as deleted (`= delete;`)?
+## 2. Which capture lists are correctly formed?
 
-1. <!-- .element: class="fragment highlight-green" --> default constructor
-1. <!-- .element: class="fragment highlight-green" --> copy constructor
-1. <!-- .element: class="fragment highlight-green" --> move constructor
-1. <!-- .element: class="fragment highlight-green" --> copy assignment operator
-1. <!-- .element: class="fragment highlight-green" --> move assignment operator
-1. <!-- .element: class="fragment highlight-green" --> destructor
-1. <!-- .element: class="fragment highlight-green" --> free function
-1. <!-- .element: class="fragment highlight-green" --> class method
-1. <!-- .element: class="fragment highlight-red" --> class member object
+Assume that all variables exist.
+
+1. <!-- .element: class="fragment highlight-red" --> <code>[=, this]</code>
+2. <!-- .element: class="fragment highlight-green" --> <code>[&, this]</code>
+3. <!-- .element: class="fragment highlight-red" --> <code>[this, *this]</code>
+4. <!-- .element: class="fragment highlight-red" --> <code>[&, &a]</code>
+5. <!-- .element: class="fragment highlight-red" --> <code>[a, &]</code>
+6. <!-- .element: class="fragment highlight-red" --> <code>[&, a, &b]</code>
+7. <!-- .element: class="fragment highlight-red" --> <code>[=, a, &b]</code>
+8. <!-- .element: class="fragment highlight-green" --> <code>[=, &a]</code>
+9. <!-- .element: class="fragment highlight-red" --> <code>[=, *a]</code>
+
+Note: 1 is an error in C++17, but not in C++20, 2, 8
 
 ___
 
@@ -62,7 +52,10 @@ ___
 
 ## Homework
 
-Take a look into `README.md` file from modern_cpp repository. You can complete all tasks and raise a Pull Request if you wish me to check your homework.
+Write a lambda that returns lambda that returns lambda and use them in callbacks to model TCP connection handshake:
+- SYN
+- ACK
+- SYN ACK
 
 ___
 

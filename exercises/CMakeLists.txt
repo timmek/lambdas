@@ -5,9 +5,12 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 project(lambdas)
 
-add_executable(area area.cpp)
-add_executable(dangling dangling.cpp)
-add_executable(synchronization synchronization.cpp)
-add_executable(sfinae sfinae.cpp)
+file(GLOB SOURCES *.cpp)
+
+foreach(FILE ${SOURCES})
+    get_filename_component(BINNAME ${FILE} NAME_WE)
+    add_executable(${BINNAME} ${FILE})
+    target_compile_options(${BINNAME} PRIVATE -Wall -Wextra -pedantic -pedantic-errors)
+endforeach(FILE)
 
 target_link_libraries(synchronization pthread)

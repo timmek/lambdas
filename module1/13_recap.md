@@ -5,7 +5,7 @@
 ___
 <!-- .element style="font-size: 0.9em"-->
 
-## What do you remember from today's session?
+## Write in a chat window 5 things that you remember best from today's session.
 
 * <!-- .element: class="fragment fade-in" --> intro (30”)
 * <!-- .element: class="fragment fade-in" --> STL algorithms customization (30”)

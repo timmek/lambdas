@@ -1,8 +1,7 @@
-## Let's get to know each other
+## Let's check your microphone 🙂
 
-* Your name and programming experience
-* What you do not like in C++?
-* Your hobbies
+* Have you ever used lambda expressions?
+* What was the craziest or the most difficult stuff that you have done in C++?
 
 ___
 <!-- .slide: data-background="../img/lukasz.jpg" -->
@@ -71,4 +70,4 @@ If you want to complain about the employer, I won't tell anyone
 
 ___
 
-### [Link to presentation on GitHub](https://github.com/coders-school/modern-cpp/tree/master/module1)
+### [Link to presentation on GitHub](https://github.com/coders-school/lambdas/tree/master/module1)
