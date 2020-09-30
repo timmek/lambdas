@@ -74,6 +74,31 @@ auto result = [](int number) { return number % 2; }(101);
 
 ___
 
+## Example
+
+```cpp
+#include <algorithm>
+#include <iostream>
+#include <vector>
+
+int main() {
+    []() { std::cout << "Hello"; }    // lambda printing Hello (not called)
+
+    std::vector<int> vec {1, 2, 3, 4, 5, 6, 7, 8, 9};
+    vec.erase(std::remove_if(vec.begin(),
+                             vec.end(),
+                             [](int num) { return num % 2; }),
+              vec.end());
+
+    auto print = [](int num) { std::cout << num << ' '; };
+    std::for_each(vec.begin(), vec.end(), print);
+
+    return 0;
+}
+```
+
+___
+
 ## When to use named/unnamed lambda?
 
 Usually prefer unnamed lambdas. They have only a local scope and will be called in current line of code. If there is no concurrency, there should be no lifetime issues.
@@ -116,21 +141,22 @@ ___
 [captures](params) specifiers [[attributes]] -> ReturnType { body };
 ```
 
-You can specify a return type of lambda function with arrow notation.
+* Usually, we do not indicate what is a lambda return type, because it is deduced automatically by the compiler. It uses lambda body `{}` to deduce the returned type.
+* You can specify a return type of lambda function with arrow notation.
 
-```cpp
-[](int rhs, int lhs) -> int { return rhs + lhs; }
-```
+    ```cpp
+    [](int rhs, int lhs) -> int { return rhs + lhs; }
+    ```
 
-From C++14 compiler can easily deduce the returned type, so arrow notation is not popular. It may be used to do implicit conversion.
+* From C++14 compiler can easily deduce the returned type, so arrow notation is not popular. It may be used to do implicit conversion.
 
-```cpp
-auto isNotNullptr = [](void* ptr) -> bool {
-    return ptr;
-};
-```
+    ```cpp
+    auto isNotNullptr = [](void* ptr) -> bool {
+        return ptr;
+    };
+    ```
 
-Return type declaration may be needed in case of some template magic.
+* Return type declaration may be needed in case of some template magic.
 
 ___
 
@@ -214,12 +240,9 @@ Probably it does not require an explanation, but...
   auto debugLog = [] { DEBUG << "hello!\n"; };
   ```
 
-* `()` cannot be skipped when return type is provided or specifiers are used
+* `()` cannot be skipped when return type is provided or specifiers or attributes are used
 
   ```cpp
-  auto isNotNullptr = [](void* ptr) -> bool {
-      return ptr;
-  };
   auto loggedSwap = [&]() noexcept {
       LOG << "before: a = " << a << ", b = " << b << '\n';
       std::swap(a, b);

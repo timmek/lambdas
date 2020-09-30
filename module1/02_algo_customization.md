@@ -41,7 +41,7 @@ std::sort(diffs.begin(), diffs.end(), absoluteCompare);
 
 `{0.1, -0.2, -0.3, 0.8, 1.1, -1.3}`
 
-#### How to get to know what function object should be passed?
+#### How to get to know what signature should the function object have?
 
 ___
 
@@ -127,6 +127,16 @@ ___
 
 ___
 
+## Lambda expressions
+
+**Rationale**: functional programming, in-place functions, more universal function passing
+<!-- .element: class="fragment fade-in" -->
+
+Lambda expression is usually defined directly in-place of its usage. Usually it is used as a parameter of another function that expects pointer to function or functor - in general a callable object.
+<!-- .element: class="fragment fade-in" -->
+
+___
+
 ## Exercise
 
 Use proper STL algorithm to check if all elements of the vector *numbers* are divisible by 3.
@@ -175,3 +185,15 @@ bool isDivisibleBy3(int number) {
 }
 bool result = std::all_of(numbers.begin(), numbers.end(), isDivisibleBy3);
 ```
+
+___
+
+## Your conclusion - what is lambda expression?
+
+* It is a function object.
+* Simple and short to write - `[](){}`.
+* It is used to have a short form of writing a function object, which normally would take more characters to be typed.
+* Provides better code readability.
+* The type of lambda is called "closure".
+* Closure is known only to the compiler.
+* To assign a lambda to a variable, it's type must be `auto`.
