@@ -37,9 +37,11 @@ ___
 
 ## `mutable` in lambda
 
-Variables captures by value (copy), are implicitly const. They are read-only and you can not modify them.
+Variables captured by value (copy), are implicitly const. They are read-only and you can not modify them.
+<!-- .element: class="fragment fade-in" -->
 
 `mutable` in lambda means, that we can modify objects captured by value.
+<!-- .element: class="fragment fade-in" -->
 
 ```cpp
 void foo() {
@@ -50,8 +52,10 @@ void foo() {
     [&number]() { number += 1.0 }(); // ok, capture by ref
 }
 ```
+<!-- .element: class="fragment fade-in" -->
 
 `mutable` keyword allows you to modify const members
+<!-- .element: class="fragment fade-in" -->
 
 ___
 

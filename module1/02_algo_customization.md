@@ -223,6 +223,6 @@ ___
 * <!-- .element: class="fragment fade-in" --> Simple and short to write - <code>[](){}</code>
 * <!-- .element: class="fragment fade-in" --> It is used to have a short form of writing a function object, which normally would take more characters to be typed
 * <!-- .element: class="fragment fade-in" --> Provides better code readability
-* <!-- .element: class="fragment fade-in" --> The type of lambda is called "closure"
+* <!-- .element: class="fragment fade-in" --> The type of lambda is called "closure class"
 * <!-- .element: class="fragment fade-in" --> Closure is known only to the compiler
 * <!-- .element: class="fragment fade-in" --> To assign a lambda to a variable, it's type must be <code>auto</code>

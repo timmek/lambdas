@@ -55,9 +55,9 @@ auto foo(int (*fptr)()) {
 
 int main() {
     int value = 5;
-    auto result = foo([value] { return value; });
+    // auto result = foo([value] { return value; });
     // error: cannot convert ‘main()::<lambda()>’ to ‘int (*)()’
-    std::cout << result;
+    // std::cout << result;
     return 0;
 }
 ```
@@ -92,17 +92,22 @@ ___
 
 ## Function signatures
 
-Pointers to functions
+### Pointers to functions
+<!-- .element: class="fragment fade-in" -->
 
-* `int (*f)()` - f takes no arguments and returns and int
-* `void (*f)(int)` - f takes an int and returns nothing
-* `double (*f)(int, string)` - f takes an int and a string and returns double
+* <!-- .element: class="fragment fade-in" --> <code>int (*f)()</code> - f takes no arguments and returns and int
+* <!-- .element: class="fragment fade-in" --> <code>void (*f)(int)</code> - f takes an int and returns nothing
+* <!-- .element: class="fragment fade-in" --> <code>double (*f)(int, string)</code> - f takes an int and a string and returns double
 
 To get `std::function` template type just remove the pointer name `(*f)`. Name the whole `std::function<>` with the name `f`.
+<!-- .element: class="fragment fade-in" -->
 
-* `std::function<int()> f` - f takes no arguments and returns and int
-* `std::function<void(int)> f` - f takes an int and returns nothing
-* `std::function<double(int, string)> f` - f takes an int and a string and returns double
+### `std::function`
+<!-- .element: class="fragment fade-in" -->
+
+* <!-- .element: class="fragment fade-in" --> <code>std::function&lt;int()> f</code> - f takes no arguments and returns and int
+* <!-- .element: class="fragment fade-in" --> <code>std::function&lt;void(int)> f</code> - f takes an int and returns nothing
+* <!-- .element: class="fragment fade-in" --> <code>std::function&lt;double(int, string)> f</code> - f takes an int and a string and returns double
 
 ___
 
@@ -110,17 +115,20 @@ ___
 
 > `std::function` is a general-purpose polymorphic function wrapper. Instances of std::function can store, copy, and invoke any Callable target - functions, lambda expressions, bind expressions, or other function objects, as well as pointers to member functions and pointers to data members.
 >
-> From [cppreference.com](https://en.cppreference.com/w/cpp/utility/functional/function)
+> -- from [cppreference.com](https://en.cppreference.com/w/cpp/utility/functional/function)
 
-`std::function` has `operator()` function, that forwards all arguments to the wrapped callable and invokes it.
+Because of this 'polymorphic' feature `std::function` is considered as a heavy stuff. If there is a possibility use pointers to functions instead.
 
-Because of this 'polymorphic' feature `std::function` is considered as a 'heavy' stuff. If there is a possibility use pointers to functions instead.
+___
+
+## empty `std::function`
+
+`std::function` has a call operator function - `operator()`, that forwards all arguments to the wrapped callable and invokes it.
 
 `std::function` can be empty. Invoking an empty `std::function` results in `std::bad_function_call` exception being thrown.
 
 ___
-
-___
+<!-- .slide: style="font-size: 0.9em" -->
 
 ## Exercise
 
@@ -145,5 +153,7 @@ int main() {
 ```
 
 Hint #1: Variadic template can handle any number of template parameter.
+<!-- .element: class="fragment fade-in" -->
 
 Hint #2: [`std::invoke`](https://en.cppreference.com/w/cpp/utility/functional/invoke) may be useful.
+<!-- .element: class="fragment fade-in" -->
