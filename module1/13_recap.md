@@ -19,5 +19,5 @@ ___
 * <!-- .element: class="fragment fade-in" --> constexpr lambdas (20”)
 * <!-- .element: class="fragment fade-in" --> 🍝 lunch break (50”)
 * <!-- .element: class="fragment fade-in" --> generic lambdas (10”)
-* <!-- .element: class="fragment fade-in" --> template simplification with generic lambdas (40”)
+* <!-- .element: class="fragment fade-in" --> templates vs generic lambdas (40”)
 * <!-- .element: class="fragment fade-in" --> recap (20”)
