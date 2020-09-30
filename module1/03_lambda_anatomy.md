@@ -284,6 +284,7 @@ Probably it does not require an explanation, but...
   ```
 
 ___
+<!-- .slide: data-background="../img/tshirt.jpg" data-background-position="bottom" data-background-opacity="0.2" -->
 
 ## Funny snippets
 
@@ -297,5 +298,3 @@ ___
   * <!-- .element: class="fragment fade-in" --> C++20 template lambda
 * <!-- .element: class="fragment fade-in" --> <code>(+[](){})();</code>
   * <!-- .element: class="fragment fade-in" --> code::dive 2019 T-shirts snippet, <a href="http://slawomir.net/2019/11/29/cpp-code-dive-t-shirts-expression/">explanation</a>
-
-<!-- TODO: image of code::dive t-shirt -->
