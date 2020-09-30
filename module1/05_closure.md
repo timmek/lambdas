@@ -55,5 +55,3 @@ auto foo(int x, int y) {
 ### What kind of danger can you see in above code snippet?
 
 Dangling reference. It causes undefined behavior.
-
-___

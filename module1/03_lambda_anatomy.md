@@ -206,7 +206,7 @@ ___
 
 `constexpr` is implicitly added in C++17 lambdas, wherever possible.
 
-> If the `c​onstexpr` specifier is omitted within the l​ambda-declarator,​ the function call operator (or template) is `c​onstexpr` if it would satisfy the requirements of a constexpr ​function:
+> If the `constexpr` specifier is omitted within the lambda-declarator, the function call operator (or template) is `constexpr` if it would satisfy the requirements of a constexpr function:
 >
 > ```cpp
 > auto ID = [](int n) { return n; };
@@ -222,7 +222,6 @@ ___
 `mutable` means, that we can modify const objects captured by the lambda.
 
 `mutable` is associated with capture list, so it will be covered together with it.
-
 
 ___
 
