@@ -4,6 +4,11 @@
 #include <string>
 #include <memory>
 
+// Change function `areaLessThan20` into lambda.
+// Then change it into `areaLessThanX`, which takes `x = 20` on a capture list.
+// What is the problem?
+// Use `std::function` to solve the problem.
+
 using namespace std;
 
 class Circle {

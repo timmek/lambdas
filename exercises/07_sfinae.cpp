@@ -62,6 +62,12 @@ void findFirstShapeMatchingPredicate(const Collection& collection,
     }
 }
 
+// Write a function `insert()` that allows inserting objects of class derived from Circle to be inserted into collection. Usage:
+// insert(Circle{1.0}, circles);
+// insert(Ellipse{1.1}, circles);      // derives from Circle
+// insert(double{1.1}, circles);        // not allowed
+// You may use SFINAE (`std::enable_if`) or `constexpr if`.
+
 int main() {
     Collection circles {
         make_shared<Circle>(4.0),
@@ -69,6 +75,7 @@ int main() {
         make_shared<Circle>(2.0),
         make_shared<Circle>(4.0),
     };
+
     // insert(Circle{1.0}, circles);
     // insert(Ellipse{1.1}, circles);
     // insert(double{1.1}, circles);

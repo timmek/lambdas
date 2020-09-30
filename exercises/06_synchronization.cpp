@@ -24,6 +24,15 @@ void printContainer(const vector<int>& c) {
     cout << endl;
 }
 
+// Fix `generateContainer()` function.
+// We want to have each value from 1 to 10 to be printed on the screen only once.
+// Every thread should put only one value to the shared vector.
+// The order does not matter.
+// Possible outputs:
+// `1, 2, 3, 4, 5, 6, 7, 8, 9, 10`
+// `2, 4, 6, 8, 10, 1, 3, 5, 7, 9`
+// `1, 3, 2, 4, 5, 6, 8, 10, 9, 7`
+
 int main() {
     auto container = generateContainer();
     printContainer(container);
