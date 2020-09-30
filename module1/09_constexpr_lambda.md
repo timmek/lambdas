@@ -32,7 +32,8 @@ ___
 
 ## Advanced example
 
-`static_assert` is evaluated in compile time. Only `constexpr` values can be used in it.
+`static_assert` is evaluated at compile time. Only `constexpr` values can be used in it.
+<!-- .element: class="fragment fade-in" -->
 
 ```cpp
 constexpr auto add = [](int n, int m) {
@@ -42,13 +43,15 @@ constexpr auto add = [](int n, int m) {
 };
 static_assert(add(3, 4)() == 7);
 ```
+<!-- .element: class="fragment fade-in" -->
 
-> -- from [P0170R1](https://isocpp.org/files/papers/P0170R1.pdf)
-
-### 'lambada' antipattern
+### The 'lambada' antipattern
+<!-- .element: class="fragment fade-in" -->
 
 Above code with lambdas inside lambdas is difficult to understand. It takes some time to deduce the way it works. If it is not necessary - avoid it :)
+<!-- .element: class="fragment fade-in" -->
 
 Lifetime issues may be especially arduous to discover and debug.
+<!-- .element: class="fragment fade-in" -->
 
 <!-- TODO: Add some exercise for lambda in lambda? -->

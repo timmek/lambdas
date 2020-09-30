@@ -19,10 +19,13 @@ ___
 ## Dangling reference
 
 The main problem with lambdas is a dangling reference.
+<!-- .element: class="fragment fade-in" -->
 
 Lambda is created in a place of it's definition - on stack. Some variables are available during it's creation.
+<!-- .element: class="fragment fade-in" -->
 
-This lambda does not have to be called immediately or in a current scope. It may be passed somewhere else. Some local variables captured by lambda may become unavailable. This causes UB (Undefined Behavior).
+This lambda does not have to be called immediately or in a current scope. It may be passed somewhere else. Some local variables captured by lambda by reference may become unavailable. This causes UB (Undefined Behavior).
+<!-- .element: class="fragment fade-in" -->
 
 ___
 
@@ -54,7 +57,8 @@ ___
 >
 > ```cpp
 > std::function<const int&()> F([]{ return 42; });
-> int x = F(); // Undefined behavior: the result of F() is a dangling reference
+> int x = F(); // Undefined behavior:
+> // the result of F() is a dangling reference
 > ```
 >
 > -- [cppreference.com](https://en.cppreference.com/w/cpp/utility/functional/function)
