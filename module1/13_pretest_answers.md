@@ -52,10 +52,14 @@ ___
 
 ## Homework
 
-Write a lambda that returns lambda that returns lambda and use them in callbacks to model TCP connection handshake:
-- SYN
-- ACK
-- SYN ACK
+Write a `schedule()` function. It should be able to run the code asynchronously and provide a feedback when this code is finished.
+
+It should take 2 arguments:
+
+* any callable that will be run in a new thread - asynchronously
+* a callback function, which will be called when the first function will be completed
+
+Send me a link to the repository with your solution.
 
 ___
 
