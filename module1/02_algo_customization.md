@@ -154,7 +154,7 @@ ___
 
 ## Exercise
 
-### `threeWays.cpp`
+### `01_threeWays.cpp`
 
 Use proper STL algorithm to check if all elements of the vector *numbers* are divisible by 3.
 

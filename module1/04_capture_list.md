@@ -130,7 +130,7 @@ ___
 
 ## Exercise
 
-### `asterisks.cpp`
+### `02_asterisks.cpp`
 
 Create a lambda, which prints `*` characters. Each lambda call should produce a string longer by one `*`.
 

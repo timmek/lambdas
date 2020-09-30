@@ -6,7 +6,7 @@ ___
 
 ## Exercise
 
-### `area.cpp`
+### `03_area.cpp`
 
 Change function `areaLessThan20` into lambda.
 
@@ -117,3 +117,33 @@ ___
 Because of this 'polymorphic' feature `std::function` is considered as a 'heavy' stuff. If there is a possibility use pointers to functions instead.
 
 `std::function` can be empty. Invoking an empty `std::function` results in `std::bad_function_call` exception being thrown.
+
+___
+
+___
+
+## Exercise
+
+### `04_invoke.cpp`
+
+Write a function `callAnything()` that can take any function/functor/lambda as a first parameter.
+
+The rest of parameters will be passed into this callable from the first argument.
+
+Function should return a result of a function object call.
+
+```cpp
+int main() {
+    callAnything(getIndexGenerator);
+    callAnything(sum, 5, 6);
+    callAnything([]{});
+    callAnything([]{ return "Hello!"; });
+    callAnything([] { std::cout << "Just testing\n"; });
+    callAnything(createVector<int>, std::initializer_list<int>{1, 2, 3});
+    return 0;
+}
+```
+
+Hint #1: Variadic template can handle any number of template parameter.
+
+Hint #2: [`std::invoke`](https://en.cppreference.com/w/cpp/utility/functional/invoke) may be useful.
