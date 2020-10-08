@@ -12,6 +12,12 @@ Every lambda expression cause the compiler to create unique closure class that i
 Closure is an object of closure class. According to way of capture type this object keeps references or copies of local variables.
 <!-- .element: class="fragment fade-in" -->
 
+Closures are to lambdas as objects are to classes.
+<!-- .element: class="fragment fade-in" -->
+
+[Lambdas vs. Closures by Scott Meyers](http://scottmeyers.blogspot.com/2013/05/lambdas-vs-closures.html)
+<!-- .element: class="fragment fade-in" -->
+
 ___
 
 ```cpp
