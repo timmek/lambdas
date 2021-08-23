@@ -1,13 +1,13 @@
 <!-- .slide: data-background="#111111" -->
 
-# The anatomy of lambda
+# Anatomia lambdy
 
 <!-- TODO: Nice background? -->
 ___
 
-But first, let's take a look into...
+Ale najpierw przyjrzyjmy się...
 
-## Empty function
+## Pusta funkcja
 <!-- .element: class="fragment fade-in" -->
 
 ```cpp
@@ -15,58 +15,58 @@ void f(){}
 ```
 <!-- .element: class="fragment fade-in" -->
 
-* <!-- .element: class="fragment fade-in" --> <code>void</code> - return type
-* <!-- .element: class="fragment fade-in" --> <code>f</code> - function name
-* <!-- .element: class="fragment fade-in" --> <code>()</code> - empty parameter list
-* <!-- .element: class="fragment fade-in" --> <code>{}</code> - empty function body
+* <!-- .element: class="fragment fade-in" --> <code>void</code> - typ zwracany
+* <!-- .element: class="fragment fade-in" --> <code>f</code> - nazwa
+* <!-- .element: class="fragment fade-in" --> <code>()</code> - pusta lista parametrów
+* <!-- .element: class="fragment fade-in" --> <code>{}</code> - puste ciało
 
 ___
 
-## Empty lambda
+## Pusta lambda
 
 ```cpp
 [](){};
 ```
 <!-- .element: class="fragment fade-in" -->
 
-* <!-- .element: class="fragment fade-in" --> <code>[]</code> - capture list (which variables from the outer scope will be captured)
-* <!-- .element: class="fragment fade-in" --> <code>()</code> - parameter list
-* <!-- .element: class="fragment fade-in" --> <code>{}</code> - function body
+* <!-- .element: class="fragment fade-in" --> <code>[]</code> - pusta lista przechwytywania
+* <!-- .element: class="fragment fade-in" --> <code>()</code> - pusta lista parametrów
+* <!-- .element: class="fragment fade-in" --> <code>{}</code> - puste ciało
 
-This lambda does nothing.
+Ta lambda nic nie robi.
 <!-- .element: class="fragment fade-in" -->
 
 ___
 
-## Simple unnamed lambda
+## Prosta nieznazwana lambda
 
 ```cpp
 [](int number) { return number % 2; };
 ```
 <!-- .element: class="fragment fade-in" -->
 
-* <!-- .element: class="fragment fade-in" --> <code>[]</code> - empty capture list
-* <!-- .element: class="fragment fade-in" --> <code>(int number)</code> - takes one parameter - <code>int</code>
-* <!-- .element: class="fragment fade-in" --> <code>{ return number % 2; }</code> - lambda body
+* <!-- .element: class="fragment fade-in" --> <code>[]</code> - pusta lista przechwytująca
+* <!-- .element: class="fragment fade-in" --> <code>(int number)</code> - przyjmuje 1 parametr - <code>int</code>
+* <!-- .element: class="fragment fade-in" --> <code>{ return number % 2; }</code> - ciało lambdy
 
 ___
 
-## Simple named lambda
+## Prosta nazwana lambda
 
 ```cpp
 auto isOdd = [](int number) { return number % 2; };
 ```
 <!-- .element: class="fragment fade-in" -->
 
-* <!-- .element: class="fragment fade-in" --> <code>auto</code> - the only proper type of lambda; it is deduced by the compiler
-* <!-- .element: class="fragment fade-in" --> <code>isOdd</code> - name of the lambda expression
-* <!-- .element: class="fragment fade-in" --> <code>[]</code> - empty capture list
-* <!-- .element: class="fragment fade-in" --> <code>(int number)</code> - takes one parameter - <code>int</code>
-* <!-- .element: class="fragment fade-in" --> <code>{ return number % 2; }</code> - lambda body
+* <!-- .element: class="fragment fade-in" --> <code>auto</code> - jedyny słuszny typ lambdy; jest znany tylko kompilatorowi
+* <!-- .element: class="fragment fade-in" --> <code>isOdd</code> - nazwa lambdy
+* <!-- .element: class="fragment fade-in" --> <code>[]</code> - pusta lista przechwytująca
+* <!-- .element: class="fragment fade-in" --> <code>(int number)</code> - przyjmuje 1 parametr - <code>int</code>
+* <!-- .element: class="fragment fade-in" --> <code>{ return number % 2; }</code> - ciało lambdy
 
 ___
 
-## Calling a lambda
+## Wywoływanie lambdy
 
 ### Named lambda
 <!-- .element: class="fragment fade-in" -->
@@ -87,7 +87,7 @@ auto result = [](int number) { return number % 2; }(101);
 
 ___
 
-## Example
+## Przykład
 
 ```cpp
 #include <algorithm>
@@ -114,30 +114,30 @@ Output: `2 4 6 8`
 
 ___
 
-## When to use named/unnamed lambda?
+## Kiedy używać nazwanych, a kiedy nienazwanych lambd?
 
-### Unnamed lambdas
+### Nienazwane
 <!-- .element: class="fragment fade-in" -->
 
-* <!-- .element: class="fragment fade-in" --> can be used and called only in one place
-* <!-- .element: class="fragment fade-in" --> have a local scope
-* <!-- .element: class="fragment fade-in" --> usually no lifetime issues (when no concurrency)
+* <!-- .element: class="fragment fade-in" --> do użycia tylko w jednym miejscu
+* <!-- .element: class="fragment fade-in" --> mają zasięg lokalny
+* <!-- .element: class="fragment fade-in" --> nie ma problemów z czasem życia (gdy nie ma wielowątkowości)
 
-### Named lambdas
+### Nazwane
 <!-- .element: class="fragment fade-in" -->
 
-* <!-- .element: class="fragment fade-in" --> reusable
-* <!-- .element: class="fragment fade-in" --> may be problematic because of lifetime issues
+* <!-- .element: class="fragment fade-in" --> reużywalne
+* <!-- .element: class="fragment fade-in" --> mogą sprawiać problemy z czasem życia obiektów
 
 ___
 
-### Full lambda declaration (C++17)
+### Pełna deklaracja lambdy (C++17)
 
 ```cpp
 [captures](params) specifiers [[attributes]] -> ReturnType { body };
 ```
 
-### Full lambda declaration (C++20)
+### Pełna deklaracja lambdy (C++20)
 <!-- .element: class="fragment fade-in" -->
 
 ```cpp
@@ -145,7 +145,7 @@ ___
 ```
 <!-- .element: class="fragment fade-in" -->
 
-#### [lambda description on cppreference.com](https://en.cppreference.com/w/cpp/language/lambda)
+#### [opis lambd na cppreference.com](https://en.cppreference.com/w/cpp/language/lambda)
 <!-- .element: class="fragment fade-in" -->
 
 ___
@@ -156,9 +156,9 @@ ___
 
 ## `{ body }`
 
-Hopefully, explanation is not required 🙃
+Mam nadzieję, że to nie wymaga wyjaśnień 🙃
 
-Every function must have a body. Forward declaration of lambda is not possible.
+Każda funkcja musi mieć ciało. Nie można stworzyć deklaracji zapowiadającej lambdy.
 
 ___
 
@@ -168,14 +168,14 @@ ___
 
 ## `-> ReturnType`
 
-* <!-- .element: class="fragment fade-in" --> Usually, we do not indicate what is a lambda return type, because it is deduced automatically by the compiler. It uses lambda body <code>{}</code> to deduce the returned type.
-* <!-- .element: class="fragment fade-in" --> You can specify a return type of lambda function with arrow notation.
+* <!-- .element: class="fragment fade-in" --> Zazwyczaj nie wskazujemy, co jest typem zwracanym, ponieważ jest on automatycznie dedukowany przez kompilator na podstawie ciała lambdy.
+* <!-- .element: class="fragment fade-in" --> Możesz jawnie określić typ zwracany za pomocą notacji ze strzałką.
 
     ```cpp
     [](int rhs, int lhs) -> int { return rhs + lhs; }
     ```
 
-* <!-- .element: class="fragment fade-in" --> From C++14 compiler can easily deduce the returned type, so arrow notation is not popular. It may be used to do implicit conversion.
+* <!-- .element: class="fragment fade-in" --> Od C++14 kompilatory mogą łatwo wydedukować zwracany typ, więc notacja strzałkowa nie jest popularna. Może być ona jednak używana do niejawnej konwersji.
 
     ```cpp
     auto isNotNullptr = [](void* ptr) -> bool {
@@ -183,7 +183,7 @@ ___
     };
     ```
 
-* <!-- .element: class="fragment fade-in" --> Return type declaration may be needed in case of some template magic.
+* <!-- .element: class="fragment fade-in" --> Deklaracja typu zwracanego może być potrzebna w przypadku niektórych magii z użyciem szablonów 🪄
 
 ___
 
@@ -193,7 +193,7 @@ ___
 
 ## `[[attributes]]`
 
-Barely used. Please refer to Modern C++ training or just check [`[[attributes]]` on cppreference.com](https://en.cppreference.com/w/cpp/language/attributes)
+Bardzo rzadko używane (praktycznie wcale). O atrybutach pouczymy się kiedy indziej, ale możesz teraz spojrzeć na [`[[attributes]]` na cppreference.com](https://en.cppreference.com/w/cpp/language/attributes)
 
 ___
 
@@ -201,15 +201,15 @@ ___
 [captures](params) <span style="color: #cf802a">specifiers</span> [[attributes]] -> ReturnType { body };
 </code>
 
-## Specifiers
+## `specifiers`
 
-There are 3 types of lambda specifiers (in C++17):
+Są 3 typy specyfikatorów dla lambda (w C++17):
 
 * <!-- .element: class="fragment fade-in" --> <code>noexcept</code>
 * <!-- .element: class="fragment fade-in" --> <code>constexpr</code>
 * <!-- .element: class="fragment fade-in" --> <code>mutable</code>
 
-From C++20 `consteval` will be available as well.
+Od C++20 jest jeszcze `consteval`.
 <!-- .element: class="fragment fade-in" -->
 
 ___
