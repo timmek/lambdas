@@ -216,11 +216,11 @@ ___
 
 ### `noexcept`
 
-`noexcept` specifier guarantees, that no exception will be thrown from this lambda function.
+`noexcept` gwarantuje, że z lambdy nie zostanie rzucony wyjątek.
 
-It is not checked during compilation.
+Nie jest to sprawdzane podczas kompilacji.
 
-If, in runtime, exception will be thrown then the application will be terminated.
+Jeśli podczas działania programu wyjątek poleci, to program zostanie ubity.
 
 ```cpp
 auto loggedSwap = [&](auto & a, auto & b) noexcept {
@@ -234,10 +234,9 @@ ___
 
 ### `constexpr`
 
-`constexpr` means that this lambda can be evaluated at compile time and the compiler may used already computed value instead of calling this lambda at runtime.
-<!-- .element: class="fragment fade-in" -->
+`constexpr` oznacza, że lambda może zostać wykonana już podczas kompilacji i kompilator może użyć gotowej, obliczonej wartości zamiast wołać tę lambdę w czasie działania programu.<!-- .element: class="fragment fade-in" -->
 
-`constexpr` is implicitly added in C++17 lambdas, wherever possible.
+`constexpr` jest niejawnie dodawany od C++17, gdzie to tylko możliwe.
 <!-- .element: class="fragment fade-in" -->
 
 > If the `constexpr` specifier is omitted within the lambda-declarator, the function call operator (or template) is `constexpr` if it would satisfy the requirements of a constexpr function:
@@ -253,9 +252,9 @@ ___
 
 ### `mutable`
 
-`mutable` means, that we can modify const objects captured by the lambda.
+`mutable` oznacza, że możemy modyfikować stałe obiekty przechwycone przez lambdę.
 
-`mutable` is associated with capture list, so it will be covered together with it.
+Pokryjemy to dokładnie trochę później podczas tematu listy przechwytującej 🙂
 
 ___
 
@@ -265,15 +264,15 @@ ___
 
 ## `(params)`
 
-Probably it does not require an explanation, but...
+To chyba nie wymaga wyjaśnienia, ale...
 
-* <!-- .element: class="fragment fade-in" --> <code>()</code> empty parentheses can be skipped
+* <!-- .element: class="fragment fade-in" --> <code>()</code> puste nawiasy można pominąć
 
   ```cpp
   auto debugLog = [] { DEBUG << "hello!\n"; };
   ```
 
-* <!-- .element: class="fragment fade-in" --> <code>()</code> cannot be skipped when return type is provided or specifiers or attributes are used
+* <!-- .element: class="fragment fade-in" --> <code>()</code> nie można pominąć pustych nawiasów, jeśli wskazujemy typ zwracany w notacji ze strzałką, używamy specyfikatorów lub atrybutów.
 
   ```cpp
   auto loggedSwap = [&]() noexcept {
@@ -289,12 +288,12 @@ ___
 ## Funny snippets
 
 * <!-- .element: class="fragment fade-in" --> <code>[](){};</code>
-  * <!-- .element: class="fragment fade-in" --> empty unnamed lambda
+  * <!-- .element: class="fragment fade-in" --> pusta nienazwana lambda
 * <!-- .element: class="fragment fade-in" --> <code>[]{}();</code>
-  * <!-- .element: class="fragment fade-in" --> immediate call of empty unnamed lambda, empty <code>()</code> are skipped
+  * <!-- .element: class="fragment fade-in" --> natychmiastowe wywołanie pustej nienazwanej lambdy, puste <code>()</code> są pominięte
 * <!-- .element: class="fragment fade-in" --> <code>[](){}();</code>
-  * <!-- .element: class="fragment fade-in" --> the same, but <code>()</code> is not skipped
+  * <!-- .element: class="fragment fade-in" --> to samo, ale puste <code>()</code> nie są pominięte
 * <!-- .element: class="fragment fade-in" --> <code>[]<>(){};</code>
-  * <!-- .element: class="fragment fade-in" --> C++20 template lambda
+  * <!-- .element: class="fragment fade-in" --> szablonowa lambda z C++20
 * <!-- .element: class="fragment fade-in" --> <code>(+[](){})();</code>
-  * <!-- .element: class="fragment fade-in" --> code::dive 2019 T-shirts snippet, <a href="http://slawomir.net/2019/11/29/cpp-code-dive-t-shirts-expression/">explanation</a>
+  * <!-- .element: class="fragment fade-in" --> code::dive 2019 T-shirts snippet, <a href="http://slawomir.net/2019/11/29/cpp-code-dive-t-shirts-expression/">wyjaśnienie</a>
