@@ -203,7 +203,7 @@ ___
 
 ## `specifiers`
 
-Są 3 typy specyfikatorów dla lambda (w C++17):
+Są 3 typy specyfikatorów dla lambd (w C++17):
 
 * <!-- .element: class="fragment fade-in" --> <code>noexcept</code>
 * <!-- .element: class="fragment fade-in" --> <code>constexpr</code>
@@ -219,8 +219,10 @@ ___
 `noexcept` gwarantuje, że z lambdy nie zostanie rzucony wyjątek.
 
 Nie jest to sprawdzane podczas kompilacji.
+<!-- .element: class="fragment fade-in" -->
 
 Jeśli podczas działania programu wyjątek poleci, to program zostanie ubity.
+<!-- .element: class="fragment fade-in" -->
 
 ```cpp
 auto loggedSwap = [&](auto & a, auto & b) noexcept {
@@ -229,14 +231,15 @@ auto loggedSwap = [&](auto & a, auto & b) noexcept {
     LOG << "after: a = " << a << ", b = " << b << '\n';
 };
 ```
+<!-- .element: class="fragment fade-in" -->
 
 ___
 
 ### `constexpr`
 
-`constexpr` oznacza, że lambda może zostać wykonana już podczas kompilacji i kompilator może użyć gotowej, obliczonej wartości zamiast wołać tę lambdę w czasie działania programu.<!-- .element: class="fragment fade-in" -->
+`constexpr` oznacza, że lambda może zostać wykonana już podczas kompilacji i kompilator może użyć gotowej, obliczonej wartości zamiast wołać tę lambdę w czasie działania programu.
 
-`constexpr` jest niejawnie dodawany od C++17, gdzie to tylko możliwe.
+`constexpr` jest niejawnie dodawany od C++17, jeśli lambda zostanie użyta w odpowiednim kontekście.
 <!-- .element: class="fragment fade-in" -->
 
 > If the `constexpr` specifier is omitted within the lambda-declarator, the function call operator (or template) is `constexpr` if it would satisfy the requirements of a constexpr function:

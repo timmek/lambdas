@@ -1,6 +1,6 @@
 <!-- .slide: data-background="#111111" -->
 
-# Capture list
+# Lista przechwytująca
 
 ___
 
@@ -10,10 +10,10 @@ ___
 
 ## `[captures]`
 
-Captures variables from the local scope of the lambda.
+Przechwytuje zmienne dostępne w lokalnym zakresie, aby były widoczne wewnątrz lambdy.
 <!-- .element: class="fragment fade-in" -->
 
-Things used inside lambda body have another scope. To pass something to lambda you need to use parameters or a capture list.
+Ciało funkcji lambda to oddzielny zakres. Aby przekazać coś do środka należy to zrobić przez parametry lub poprzez listę przechwytującą.
 <!-- .element: class="fragment fade-in" -->
 
 ```cpp
@@ -29,42 +29,46 @@ int divide(int number) {
 
 ___
 
-## Why there are 2 ways of passing things inside a lambda?
+## Dlaczego są 2 sposoby na przekazanie obiektów?
 
-Lambda may be created in one scope and called in another.
+Lambda może zostać utworzona w jednym zakresie, a wywołana w innym.
 <!-- .element: class="fragment fade-in" -->
 
-Variables from the local scope are captured by a capture list immediately (on lambda creation), whereas parameters may be passed later in a calling scope.
+Zmienne z lokalnego zakresu są przechwytywane przez listę przechwytującą podczas tworzenia lambdy, natomiast parametry podaje się podczas wywołania lambdy.
 <!-- .element: class="fragment fade-in" -->
 
-Things from a capture list exist as a lambda internal members.
-<!-- .element: class="fragment fade-in" -->
-
-___
-
-## Capture list values
-
-* <!-- .element: class="fragment fade-in" --> <code>[]</code> - capture nothing
-* <!-- .element: class="fragment fade-in" --> <code>[a]</code> - capture variable <code>a</code> by copy (value)
-* <!-- .element: class="fragment fade-in" --> <code>[&a]</code> - capture variable <code>a</code> by reference
-* <!-- .element: class="fragment fade-in" --> <code>[a, &b]</code> - capture <code>a</code> by copy and <code>b</code> by reference
-* <!-- .element: class="fragment fade-in" --> <code>[=]</code> - capture everything by copy
-* <!-- .element: class="fragment fade-in" --> <code>[&]</code> - capture everything by reference
-* <!-- .element: class="fragment fade-in" --> <code>[&, a]</code> - capture <code>a</code> by copy and everything else by reference
-* <!-- .element: class="fragment fade-in" --> <code>[=, &a]</code> - capture <code>a</code> by reference and everything else by copy
-* <!-- .element: class="fragment fade-in" --> <code>[this]</code> - capture <code>this</code> pointer <b>by reference</b> (lambda can modify current class object)
-* <!-- .element: class="fragment fade-in" --> <code>[*this]</code> - (C++17) capture <code>this</code> pointer by copy (creates a copy of current object)
-
-`this` is captured anyway when either `[=]` or `[&]` are used and **in both cases allow to modify** the current object
+Obiekty z listy przechwytującej istnieją jako wewnętrzne pola w lambdzie (pamiętaj, że lambda to funktor, czyli zwykła klasa z `operatorem()`)
 <!-- .element: class="fragment fade-in" -->
 
 ___
 
-### When using `[&]` may not be safe?
+## Demo na [`cppinsights.io`](https://cppinsights.io)
 
 ___
 
-## Examples
+## Wartości na liście przechwytującej
+
+* <!-- .element: class="fragment fade-in" --> <code>[]</code> - nic nie przechwytujemy
+* <!-- .element: class="fragment fade-in" --> <code>[a]</code> - przechwytujemy zmienną  <code>a</code> przez kopię (wartość)
+* <!-- .element: class="fragment fade-in" --> <code>[&a]</code> - przechwytujemy zmienną <code>a</code> przez referencję
+* <!-- .element: class="fragment fade-in" --> <code>[a, &b]</code> - przechwytujemy <code>a</code> przez kopię i <code>b</code> przez referencję
+* <!-- .element: class="fragment fade-in" --> <code>[=]</code> - przechwytujemy wszystko przez kopię
+* <!-- .element: class="fragment fade-in" --> <code>[&]</code> - przechwytujemy wszystko przez referencję
+* <!-- .element: class="fragment fade-in" --> <code>[&, a]</code> - przechwytujemy <code>a</code> przez kopię, a wszystko pozostałe przez referencję
+* <!-- .element: class="fragment fade-in" --> <code>[=, &a]</code> - przechwytujemy <code>a</code> przez referencję, a wszystko pozostałe przez kopię
+* <!-- .element: class="fragment fade-in" --> <code>[this]</code> - przechwytujemy wskaźnik <code>this</code> <b>przez referencję</b> (lambda może zmodyfikować obiekt klasy)
+* <!-- .element: class="fragment fade-in" --> <code>[*this]</code> - (C++17) przechwytujemy wskaźnik <code>this</code> przez kopię (tworzona jest kopia aktualnego obiektu)
+
+`this` jest mimo wszystko i tak przechwytywane, gdy używamy `[=]` lub `[&]` i **w obu przypadkach pozwala na modyfikację** obecnego obiektu klasy.
+<!-- .element: class="fragment fade-in" -->
+
+___
+
+### Kiedy użycie `[&]` może być niebezpieczne?
+
+___
+
+## Przykład
 
 ```cpp
 int a {5};
@@ -89,6 +93,8 @@ ___
 
 ## Quiz
 
+Czy poniższe listy przechwytujące są poprawne?
+
 * <!-- .element: class="fragment fade-in" --> <code>[i, i]</code>
   * <!-- .element: class="fragment fade-in" --> error, <code>i</code> repeated
 * <!-- .element: class="fragment fade-in" --> <code>[&, &i]</code>
@@ -106,10 +112,10 @@ ___
 
 ## Lambda capture expressions (C++14)
 
-C++11 lambda functions capture variables declared in their outer scopes by value-copy or by reference. This means that a value members of a lambda cannot be **move-only** types.
+Lambdy w C++11 przechwytują zmienne tylko przez kopię lub referencję. Przez to nie możemy przechwytywać obiektów, które można tylko przenosić (takie jak `std::unique_ptr`).
 <!-- .element: class="fragment fade-in" -->
 
-C++14 allows captured members to be initialized with arbitrary expressions. This allows both capture by value-move and declaring arbitrary members of the lambda, without having a correspondingly named variable in an outer scope.
+C++14 dopuszcza przenoszenie, dzięki możliwości definiowania nowych zmiennych na liście przechwytującej.
 <!-- .element: class="fragment fade-in" -->
 
 ```cpp
@@ -123,18 +129,18 @@ auto anotherLambda = [value = std::move(ptr)] { return *value; };
 ```
 <!-- .element: class="fragment fade-in" -->
 
-Variable initialized on capture list have `auto` type. It is deduced from the expression.
+Na liście przechwytującej nie podajemy typów nowo zdefiniowanych obiektów. Typy są dedukowane na podstawie przypisania. Jest tam po prostu typ `auto`.
 <!-- .element: class="fragment fade-in" -->
 
 ___
 
-## Exercise
+## Zadanie
 
 ### `02_asterisks.cpp`
 
-Create a lambda, which prints `*` characters. Each lambda call should produce a string longer by one `*`.
+Utwórz lambdę, która będzie wypisywać gwiazdki `*`. Każde kolejne jej wywołanie powinno wyprodukować string dłuższy o jedną gwiazdkę. Nie używaj zmiennych statycznych :)
 
-Example:
+Przykład:
 
 * `*`
 * `**`
