@@ -1,18 +1,20 @@
 <!-- .slide: data-background="#111111" -->
 
-# Closure
+# Domknięcie
+
+## ang. closure
 
 ___
 
-## What is underneath lambda?
+## Co siedzi pod spodem lambdy?
 
-Every lambda expression cause the compiler to create unique closure class that implements function operator with code from the expression.
+Każde wyrażenie lambda powoduje, że kompilator tworzy unikatową klasę domknięcia, która implementuje operator wywołania z kodem z wyrażenia lambda
 <!-- .element: class="fragment fade-in" -->
 
-Closure is an object of closure class. According to way of capture type this object keeps references or copies of local variables.
+Domknięcie (closure) jest obiektem klasy domknięcia (closure class). W zależności od tego jak lambda przechwytuje obiekty, ta klasa zawiera kopie lub referencje do zmiennych lokalnych.
 <!-- .element: class="fragment fade-in" -->
 
-Closures are to lambdas as objects are to classes.
+Domknięcia są względem lambd tym, czym są obiekty względem klas.
 <!-- .element: class="fragment fade-in" -->
 
 [Lambdas vs. Closures by Scott Meyers](http://scottmeyers.blogspot.com/2013/05/lambdas-vs-closures.html)
