@@ -131,9 +131,3 @@ auto anotherLambda = [value = std::move(ptr)] { return *value; };
 
 Na liście przechwytującej nie podajemy typów nowo zdefiniowanych obiektów. Typy są dedukowane na podstawie przypisania. Jest tam po prostu typ `auto`.
 <!-- .element: class="fragment fade-in" -->
-
-___
-
-## Zadanie
-
-Utwórz lambdę, która ma wraz z każdym wywołaniem zwracać kolejną literę alfabetu, zaczynając od 'a'. Gdy dojdziemy do 'z' lambda powinna zwracać duże litery - od 'A' do 'Z', a potem znów małe. Nie używaj zmiennych statycznych.

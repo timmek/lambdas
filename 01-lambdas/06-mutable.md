@@ -12,9 +12,9 @@ ___
 
 ___
 
-## M&M rule (multithreading)
+## zasada M&M (wielowątkowość)
 
-The usual use of `mutable` is in M&M rule.
+Zazwyczaj `mutable` używamy w zasadzie M&M.
 
 ```cpp
 class ThreadsafeCounter {
@@ -35,12 +35,15 @@ class ThreadsafeCounter {
 
 ___
 
-## `mutable` in lambda
+## `mutable` w lambdzie
 
-Variables captured by value (copy), are implicitly const. They are read-only and you can not modify them.
+Operator wywołania - `operator()` - w lambdzie jest funkcją `const`. Oznacza to, że nie może on modyfikować pól klasy.
 <!-- .element: class="fragment fade-in" -->
 
-`mutable` in lambda means, that we can modify objects captured by value.
+Łatwiej jest myśleć o tym w ten sposób, że to co przechwycimy przez kopię jest `const`.
+<!-- .element: class="fragment fade-in" -->
+
+`mutable` w lambdzie oznacza, że możemy modyfikować obiekty przechwycone przez kopię.
 <!-- .element: class="fragment fade-in" -->
 
 ```cpp
@@ -54,7 +57,7 @@ void foo() {
 ```
 <!-- .element: class="fragment fade-in" -->
 
-`mutable` keyword allows you to modify const members
+`mutable` pozwala na modyfikowanie pól w stałym obiekcie.
 <!-- .element: class="fragment fade-in" -->
 
 ___
@@ -72,3 +75,9 @@ int main() {
 ```
 
 Output: `0 1 2 3 4 5 6 7 8 9`
+
+___
+
+## Zadanie
+
+Utwórz lambdę, która ma wraz z każdym wywołaniem zwracać kolejną literę alfabetu, zaczynając od `a`. Gdy dojdziemy do `z` lambda powinna zwracać duże litery - od `A` do `Z`, a potem znów małe. Nie używaj zewnętrznych zmiennych statycznych lub globalnych.
