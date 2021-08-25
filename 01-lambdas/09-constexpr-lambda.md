@@ -4,9 +4,9 @@
 
 ___
 
-## Implicit `constexpr`
+## Niejawny `constexpr`
 
-From C++17 all lambda functions are by default implicitly marked as `constexpr`, if possible.
+Od C++17 wszystkie funkcje lambda są domyślnie oznaczone jako `constexpr`, jeśli jest to możliwe.
 
 ```cpp
 auto squared = [](auto x) {             // implicitly constexpr
@@ -18,9 +18,9 @@ std::array<int, squared(8)> a;          // OK - array<int, 64>
 
 ___
 
-## Explicit `constexpr`
+## Jawny `constexpr`
 
-`constexpr` keyword can also be used explicitly.
+Słowa kluczowego `constexpr` możemy też użyć jawnie.
 
 ```cpp
 auto squared = [](auto x) constexpr {   // OK
@@ -30,9 +30,9 @@ auto squared = [](auto x) constexpr {   // OK
 
 ___
 
-## Advanced example
+## Zaawansowany przykład
 
-`static_assert` is evaluated at compile time. Only `constexpr` values can be used in it.
+`static_assert` jest zawsze ewaluowany podczas kompilacji. Można w nim używać tylko wyrażeń `constexpr`.
 <!-- .element: class="fragment fade-in" -->
 
 ```cpp
@@ -45,13 +45,13 @@ static_assert(add(3, 4)() == 7);
 ```
 <!-- .element: class="fragment fade-in" -->
 
-### The 'lambada' antipattern
+### Antywzorzec 'lambada'
 <!-- .element: class="fragment fade-in" -->
 
-Above code with lambdas inside lambdas is difficult to understand. It takes some time to deduce the way it works. If it is not necessary - avoid it :)
+Powyższy kod z lambdami wewnątrz lambd jest trudny do zrozumienia. Potrzeba dużo czasu, aby wydedukować jak on działa. Jeśli nie jest to konieczne - unikaj tego.
 <!-- .element: class="fragment fade-in" -->
 
-Lifetime issues may be especially arduous to discover and debug.
+Problemy z czasem życia obiektów są bardzo trudne do odkrycia i debugowania.
 <!-- .element: class="fragment fade-in" -->
 
 <!-- TODO: Add some exercise for lambda in lambda? -->
