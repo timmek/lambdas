@@ -136,13 +136,4 @@ ___
 
 ## Zadanie
 
-### `02_asterisks.cpp`
-
-Utwórz lambdę, która będzie wypisywać gwiazdki `*`. Każde kolejne jej wywołanie powinno wyprodukować string dłuższy o jedną gwiazdkę. Nie używaj zmiennych statycznych :)
-
-Przykład:
-
-* `*`
-* `**`
-* `***`
-* etc.
+Utwórz lambdę, która ma wraz z każdym wywołaniem zwracać kolejną literę alfabetu, zaczynając od 'a'. Gdy dojdziemy do 'z' lambda powinna zwracać duże litery - od 'A' do 'Z', a potem znów małe. Nie używaj zmiennych statycznych.
