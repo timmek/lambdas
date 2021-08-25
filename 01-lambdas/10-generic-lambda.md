@@ -1,15 +1,15 @@
 <!-- .slide: data-background="#111111" -->
 
-# Generic lambda
+# Generyczne lambdy
 
 ___
 
-## Generic lambdas
+## Generyczne lambdy
 
-In C++11 parameters of lambda expression must be declared with use of specific type.
+W C++11 parametry lambdy muszą mieć konkretne typy.
 <!-- .element: class="fragment fade-in" -->
 
-C++14 allows to declare parameter as `auto`.
+C++14 pozwala na użycie typu parametru `auto`.
 <!-- .element: class="fragment fade-in" -->
 
 ```cpp
@@ -37,15 +37,9 @@ Output:
 ___
 <!-- .slide: style="font-size: 0.95em" -->
 
-## Generic lambdas closure class
+## Domknięcia generycznych lambd
 
-In C++11 parameters of lambda expression must be declared with use of specific type.
-<!-- .element: class="fragment fade-in" -->
-
-C++14 allows to declare parameter as `auto`.
-<!-- .element: class="fragment fade-in" -->
-
-This allows a compiler to deduce the type of lambda parameter in the same way parameters of the templates are deduced. In result a compiler generates a code equivalent to a closure class given below:
+Użycie typu `auto` powoduje wygenerowanie klasy domknięcia, która ma szablonowy operator wywołania.
 <!-- .element: class="fragment fade-in" -->
 
 ```cpp
