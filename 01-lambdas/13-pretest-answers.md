@@ -2,7 +2,7 @@
 
 # Pre-test 🤯
 
-## Answers
+## Odpowiedzi
 
 ___
 
@@ -26,7 +26,7 @@ ___
 
 Zakładamy, że wszystkie użyte zmienne istnieją.
 
-1. <!-- .element: class="fragment highlight-red" --> <code>[=, this]</code>
+1. <!-- .element: class="fragment highlight-blue" --> <code>[=, this]</code> <span class="fragment fade-in">(correct in C++20, not in C++17)</span>
 2. <!-- .element: class="fragment highlight-green" --> <code>[&, this]</code>
 3. <!-- .element: class="fragment highlight-red" --> <code>[this, *this]</code>
 4. <!-- .element: class="fragment highlight-red" --> <code>[&, &a]</code>
@@ -37,5 +37,3 @@ Zakładamy, że wszystkie użyte zmienne istnieją.
 9. <!-- .element: class="fragment highlight-red" --> <code>[=, *a]</code>
 
 Note: 1 is an error in C++17, but not in C++20, 2, 8
-
-___
