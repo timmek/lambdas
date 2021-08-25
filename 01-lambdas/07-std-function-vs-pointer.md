@@ -1,26 +1,12 @@
 <!-- .slide: data-background="#111111" -->
 
-# `std::function` vs pointer to function
+# `std::function` vs wskaźnik na funkcję
 
 ___
 
-## Exercise
+## Konwersja na wskaźnik na funkcję #1
 
-### `03_area.cpp`
-
-Change function `areaLessThan20` into lambda.
-
-Then change it into `areaLessThanX`, which takes `x = 20` on a capture list.
-
-What is the problem?
-
-Use `std::function` to solve the problem.
-
-___
-
-## Conversion to pointer to function #1
-
-Lambda that does not capture anything can be converted into a pointer to function.
+Lambda, która nie przechwytuje niczego jest konwertowalna na wskaźnik na funkcję.
 
 ```cpp
 #include <iostream>
@@ -40,9 +26,9 @@ int main() {
 
 ___
 
-## Conversion to pointer to function #2
+## Konwersja na wskaźnik na funkcję #2
 
-Lambda that captures can not be converted into a pointer to function.
+Lambda, która coś przechwytuje nie może zostać skonwertowana na wskaźnik na funkcję.
 
 ```cpp
 #include <iostream>
@@ -66,14 +52,13 @@ ___
 
 ## `std::function`
 
-`std::function` is a special wrapper class that can hold any type of callable, especially all kind of lambdas.
+`std::function` jest specjalnym wrapperem, który może trzymać obiekty wywoływalne dowolnego typu. W szczególności wszystkie rodzaje lambd, ale też każdy funktor czy wskaźnik na funkcję.
 
-It is defined in `<functional>` header.
+`std::function` jest w nagłówku `<functional>`.
 
 ```cpp
 #include <iostream>
 #include <functional>
-using namespace std;
 
 auto foo(std::function<int()> fptr) {
     auto result = fptr();
@@ -82,24 +67,23 @@ auto foo(std::function<int()> fptr) {
 
 int main() {
     int value = 5;
-    auto result = foo([value] { return value; });
-    std::cout << result;
+    std::cout << foo([value] { return value; });
     return 0;
 }
 ```
 
 ___
 
-## Function signatures
+## Sygnatury funkcji
 
-### Pointers to functions
+### Wskaźniki na funkcje
 <!-- .element: class="fragment fade-in" -->
 
 * <!-- .element: class="fragment fade-in" --> <code>int (*f)()</code> - f takes no arguments and returns and int
 * <!-- .element: class="fragment fade-in" --> <code>void (*f)(int)</code> - f takes an int and returns nothing
 * <!-- .element: class="fragment fade-in" --> <code>double (*f)(int, string)</code> - f takes an int and a string and returns double
 
-To get `std::function` template type just remove the pointer name `(*f)`. Name the whole `std::function<>` with the name `f`.
+Aby uzyskać typ szablonowy potrzebny do `std::function` usuwamy część określającą nazwę wskaźnika `(*f)`. Samo `std::function<>` możemy nazwać nazwą wskaźnika `f`.
 <!-- .element: class="fragment fade-in" -->
 
 ### `std::function`
@@ -117,43 +101,26 @@ ___
 >
 > -- from [cppreference.com](https://en.cppreference.com/w/cpp/utility/functional/function)
 
-Because of this 'polymorphic' feature `std::function` is considered as a heavy stuff. If there is a possibility use pointers to functions instead.
+Ponieważ `std::function` jest *polimorficzne*, to uważa się je za dość "ciężki". Nie słynie ono z super wydajności. Jeśli musisz mieć jak najwydajniejszy kod i nie musisz przechowywać lub przekazywać lambd, które coś przechwytują, używać wskaźników na funkcje.
 
 ___
 
-## empty `std::function`
+## puste `std::function`
 
-`std::function` has a call operator function - `operator()`, that forwards all arguments to the wrapped callable and invokes it.
+`std::function` posiada operator wywołania - `operator()`, który przekazuje to wywołanie do wewnętrznego obiektu.
 
-`std::function` can be empty. Invoking an empty `std::function` results in `std::bad_function_call` exception being thrown.
+`std::function` może być też puste. Wywołanie pustego `std::function` skutkuje rzuceniem wyjątku `std::bad_function_call`.
 
 ___
-<!-- .slide: style="font-size: 0.9em" -->
 
-## Exercise
+## Zadanie
 
-### `04_invoke.cpp`
+### `03_area.cpp`
 
-Write a function `callAnything()` that can take any function/functor/lambda as a first parameter.
+Zmień funkcję `areaLessThan20` w lambdę.
 
-The rest of parameters will be passed into this callable from the first argument.
+Potem zmień ją w lambdę `areaLessThanX`, która przyjmuje `x = 20` na liście przechwytującej.
 
-Function should return a result of a function object call.
+Jaki będzie problem?
 
-```cpp
-int main() {
-    callAnything(getIndexGenerator);
-    callAnything(sum, 5, 6);
-    callAnything([]{});
-    callAnything([]{ return "Hello!"; });
-    callAnything([] { std::cout << "Just testing\n"; });
-    callAnything(createVector<int>, std::initializer_list<int>{1, 2, 3});
-    return 0;
-}
-```
-
-Hint #1: Variadic template can handle any number of template parameter.
-<!-- .element: class="fragment fade-in" -->
-
-Hint #2: [`std::invoke`](https://en.cppreference.com/w/cpp/utility/functional/invoke) may be useful.
-<!-- .element: class="fragment fade-in" -->
+Użyj `std::function`, aby rozwiązać problem.
