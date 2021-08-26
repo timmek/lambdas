@@ -80,4 +80,4 @@ ___
 
 ## Zadanie
 
-Utwórz lambdę, która ma wraz z każdym wywołaniem zwracać kolejną literę alfabetu, zaczynając od `a`. Gdy dojdziemy do `z` lambda powinna zwracać duże litery - od `A` do `Z`, a potem znów małe. Nie używaj zewnętrznych zmiennych statycznych lub globalnych.
+Utwórz lambdę, która ma wraz z każdym wywołaniem zwracać kolejną literę alfabetu, zaczynając od `a`. Gdy dojdziemy do `z` lambda powinna zwracać duże litery - od `A` do `Z`, a potem znów małe. Nie używaj zewnętrznych zmiennych statycznych lub globalnych. Zaimplementuj to zadanie bez używania tablicy ASCII.
