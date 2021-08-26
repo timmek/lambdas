@@ -3,29 +3,30 @@
 # Praca domowa
 
 ___
+<!-- .slide: style="font-size: 0.8em" -->
+## Zadanie domowe
 
-## Post-test
+* `schedule` (10 XP)
+* `template-schedule` (zaawansowane, dla chętnych) (15 XP)
 
-Wypełnij sobie ten test po około tygodniu od przerobienia tej lekcji. Dzięki temu trochę materiału uda Ci się zapomnieć i odświeżysz go sobie jeszcze raz. To lepsze niż podejście do testu od razu, bo gdy wiedzę masz na świeżo to test napiszesz lepiej.
-My oczywiście zakładamy, że nie chcesz zakuć, zdać i zapomnieć, tylko pamiętać jak najdłużej 🙂
+## Bonusy
 
-___
-
-## Homework
-
-Write a `schedule()` function. It should be able to run the code asynchronously and provide a feedback when this code is finished.
-
-It should take 2 arguments:
-
-* any callable that will be run in a new thread - asynchronously
-* a callback function, which will be called when the first function will be completed
-
-Send me a link to the repository with your solution.
+* +3 XP za dostarczenie każdego zadania przed 19.09.2021 (razem +6 XP)
+* +1 XP za pracę w grupie dla każdej osoby z grupy za każde zadanie (razem +2 XP na osobę)
 
 ___
 
-## Feedback
+## `schedule`
 
-* What could be improved in this training?
-* What was the most valuable for you?
-* [Training evaluation](https://forms.gle/qEZFvYKdgbxkyxYj7)
+Napisz funkcję `schedule()`, która przyjmie dowolną funkcję, która nie przyjmuje żadnego argumentu i nic nie zwraca. Ma ona wewnątrz wywołać tę funkcję.
+Napisz również przeciążenie funkcji `schedule()`, które ma przyjąć dowolną funkcję, która przyjmuje `int` i zwraca `int`.
+
+Na gałęzi `schedule` masz już gotowy szkielet do tej aplikacji. Funkcja `schedule()` jest tam odpalana asynchronicznie na oddzielnym wątku. Przy okazji możesz zobaczyć jak się pisze proste programy wielowątkowe 🙂
+
+___
+
+## `template-schedule`
+
+Zaawansowane - dla chętnych
+
+Przerób funkcję `schedule()` na szablon funkcji, który przyjmie zupełnie dowolny typ funkcji, o dowolnej liczbie i typach parametrów oraz o dowolnym typie zwracanym.
