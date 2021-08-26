@@ -155,7 +155,7 @@ ___
 
 ## Zadanie
 
-### `01_threeWays.cpp`
+### `threeWays.cpp`
 
 Użyj odpowiedniego algorytmu STL, aby sprawdzić, czy wszystkie elementy wektora *numbers* są podzielne przez 3.
 
@@ -212,7 +212,7 @@ bool result = std::all_of(numbers.begin(), numbers.end(), DivisibleBy{3});
 
 ___
 
-## Twoje wnioski
+## Wnioski
 
 ### Co to jest wyrażenie lambda?
 

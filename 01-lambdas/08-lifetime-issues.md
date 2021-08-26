@@ -21,7 +21,7 @@ ___
 
 ## Zadanie
 
-### `05_dangling.cpp`
+### `dangling.cpp`
 
 Napraw kod.
 

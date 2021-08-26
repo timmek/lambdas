@@ -12,5 +12,3 @@ foreach(FILE ${SOURCES})
     add_executable(${BINNAME} ${FILE})
     target_compile_options(${BINNAME} PRIVATE -Wall -Wextra -pedantic -pedantic-errors)
 endforeach(FILE)
-
-target_link_libraries(06_synchronization pthread)

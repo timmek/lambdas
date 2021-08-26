@@ -115,7 +115,7 @@ ___
 
 ## Zadanie
 
-### `03_area.cpp`
+### `area.cpp`
 
 Zmień funkcję `areaLessThan20` w lambdę.
 
