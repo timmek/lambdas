@@ -7,10 +7,11 @@ ___
 ## Zadanie domowe
 
 * `schedule` (12 XP)
+* `schedule-bonus` (10 XP)
 
 ## Bonusy
 
-* +3 XP za dostarczenie zadania przed 19.09.2021
+* +3 XP za dostarczenie zadań przed 19.09.2021
 * +1 XP za pracę w grupie dla każdej osoby z grupy
 
 ___
@@ -25,3 +26,7 @@ ___
 3. Napisz kolejne przeciążenie, które będzie przyjmować funkcje, które przyjmują `std::string` oraz `double` jako swoje argumenty i nic nie zwracają.
 
 Na gałęzi `schedule` masz już gotowy szkielet do tej aplikacji. Tam dostarcz swój kod.
+
+Bonus: zaimplementuj schedule jako funkcję szablonową. Wystarczy wtedy tylko jedna jej wersja, bez żadnych przeciążeń.
+
+Uwaga, to trudne zadanie na tym etapie kursu!
