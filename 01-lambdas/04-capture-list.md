@@ -37,7 +37,7 @@ Lambda może zostać utworzona w jednym zakresie, a wywołana w innym.
 Zmienne z lokalnego zakresu są przechwytywane przez listę przechwytującą podczas tworzenia lambdy, natomiast parametry podaje się podczas wywołania lambdy.
 <!-- .element: class="fragment fade-in" -->
 
-Obiekty z listy przechwytującej istnieją jako wewnętrzne pola w lambdzie (pamiętaj, że lambda to funktor, czyli zwykła klasa z `operatorem()`)
+Obiekty z listy przechwytującej istnieją jako wewnętrzne pola w lambdzie (pamiętaj, że lambda to funktor, czyli zwykła klasa z `operatorem()`).
 <!-- .element: class="fragment fade-in" -->
 
 ___
