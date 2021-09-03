@@ -13,4 +13,4 @@ Na gałęzi `schedule` masz już gotowy szkielet do tej aplikacji. Tam dostarcz 
 
 Zaimplementuj schedule jako funkcję szablonową. Wystarczy wtedy tylko jedna jej wersja, bez żadnych przeciążeń.
 
-Uwaga, to trudne zadanie na tym etapie kursu! Ale nie bój się poprosić o pomoc na Discordzie :) 
+Uwaga, to trudne zadanie na tym etapie kursu! Ale nie bój się eksperymentować i poprosić o pomoc na Discordzie :) 
