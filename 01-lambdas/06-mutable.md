@@ -49,10 +49,10 @@ Operator wywołania - `operator()` - w lambdzie jest funkcją `const`. Oznacza t
 ```cpp
 void foo() {
     double number = 0.5;
-    [number]() mutable { number += 1.0 }(); // ok
-    // [number] { number += 1.0 }();
+    [number]() mutable { number += 1.0; }(); // ok
+    // [number] { number += 1.0; }();
     // error: assignment of read-only variable ‘number’
-    [&number]() { number += 1.0 }(); // ok, capture by ref
+    [&number]() { number += 1.0; }(); // ok, capture by ref
 }
 ```
 <!-- .element: class="fragment fade-in" -->
