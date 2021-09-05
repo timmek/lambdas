@@ -6,7 +6,7 @@ jobs:
   schedule-bonus:
     runs-on: ubuntu-latest
     env:
-      path: homework/inner-product/build
+      path: homework/schedule/build
     steps:
     - name: Check out code
       uses: actions/checkout@master
