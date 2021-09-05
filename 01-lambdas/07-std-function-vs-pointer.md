@@ -89,7 +89,7 @@ Aby uzyskać typ szablonowy potrzebny do `std::function` usuwamy część okreś
 ### `std::function`
 <!-- .element: class="fragment fade-in" -->
 
-* <!-- .element: class="fragment fade-in" --> <code>std::function&lt;int()> f</code> - f takes no arguments and returns and int
+* <!-- .element: class="fragment fade-in" --> <code>std::function&lt;int()> f</code> - f takes no arguments and returns an int
 * <!-- .element: class="fragment fade-in" --> <code>std::function&lt;void(int)> f</code> - f takes an int and returns nothing
 * <!-- .element: class="fragment fade-in" --> <code>std::function&lt;double(int, string)> f</code> - f takes an int and a string and returns double
 
