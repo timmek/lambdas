@@ -101,7 +101,7 @@ ___
 >
 > -- from [cppreference.com](https://en.cppreference.com/w/cpp/utility/functional/function)
 
-Ponieważ `std::function` jest *polimorficzne*, to uważa się je za dość "ciężki". Nie słynie ono z super wydajności. Jeśli musisz mieć jak najwydajniejszy kod i nie musisz przechowywać lub przekazywać lambd, które coś przechwytują, używać wskaźników na funkcje.
+Ponieważ `std::function` jest *polimorficzne*, to uważa się je za dość "ciężki". Nie słynie ono z super wydajności. Jeśli musisz mieć jak najwydajniejszy kod i nie musisz przechowywać lub przekazywać lambd, które coś przechwytują, używaj wskaźników na funkcje.
 
 ___
 
