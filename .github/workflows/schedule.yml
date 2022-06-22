@@ -29,3 +29,4 @@ jobs:
       uses: coders-school/github-actions/clang-format-check@main
       with:
         check_path: homework/schedule
+        exclude_dir: 'homework/schedule/tests/catch'
