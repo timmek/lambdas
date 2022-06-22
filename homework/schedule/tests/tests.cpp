@@ -1,16 +1,15 @@
-#include "catch_amalgamated.hpp"
-#include "schedule.hpp"
 #include <chrono>
 #include <string>
+#include "catch_amalgamated.hpp"
+#include "schedule.hpp"
 
 using namespace std::chrono_literals;
-
 
 SCENARIO("Testing schedule function with void()", "[schedule]") {
     GIVEN("a function that modifies variable and a 2 seconds duration") {
         int i = 0;
         constexpr int newValue = 42;
-        auto func = [&i]{ i = newValue; };
+        auto func = [&i] { i = newValue; };
         constexpr auto duration = 2s;
 
         WHEN("schedule takes func and duration") {
@@ -31,7 +30,7 @@ SCENARIO("Testing schedule function with void(int)", "[schedule]") {
     GIVEN("a function that modifies variable and a 1 second duration") {
         int i = 0;
         constexpr int newValue = 42;
-        auto func = [&i](int){ i = newValue; };
+        auto func = [&i](int) { i = newValue; };
         constexpr auto duration = 1s;
         int notImportantValue = 23;
 
@@ -53,7 +52,7 @@ SCENARIO("Testing schedule function with void(std::string, double)", "[schedule]
     GIVEN("a function that modifies variable and a 0 second duration") {
         int i = 0;
         constexpr int newValue = 42;
-        auto func = [&i](std::string, double){ i = newValue; };
+        auto func = [&i](std::string, double) { i = newValue; };
         constexpr auto duration = 0s;
         std::string notImportantString = "text";
         double notImportantDouble = 3.14;
