@@ -15,6 +15,7 @@
 // Bonus: zaimplementuj schedule jako funkcję szablonową. Wystarczy wtedy tylko jedna jej wersja, bez żadnych przeciążeń.
 // Uwaga, 
 
+
 void schedule( std::function<void()> func, std::chrono::seconds sec)
 {
     auto start = std::chrono::system_clock::now();
