@@ -40,7 +40,7 @@ void schedule(std::function<void(std::string, double)> func, std::chrono::second
     while ((std::chrono::system_clock::now() - start) < (std::chrono::duration < double>)sec)
         continue;
 
-    func("aaaaaa", 3.45f);
+    func(text, number);
 }
 
 int main() {
