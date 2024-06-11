@@ -2,7 +2,7 @@
 #include <iomanip>
 #include <iostream>
 #include <string>
-//#include "schedule.hpp"
+#include "schedule.hpp"
 #include <functional>
 
 // Napisz funkcję schedule(), która przyjmuje dwa parametry:
@@ -14,34 +14,6 @@
 
 // Bonus: zaimplementuj schedule jako funkcję szablonową. Wystarczy wtedy tylko jedna jej wersja, bez żadnych przeciążeń.
 // Uwaga, 
-
-
-void schedule( std::function<void()> func, std::chrono::seconds sec)
-{
-    auto start = std::chrono::system_clock::now();
-    while ((std::chrono::system_clock::now() - start) < (std::chrono::duration < double>)sec)
-        continue;
-
-    func();
-}
-
-void schedule(std::function<void(int)> func, std::chrono::seconds sec, int number)
-{
-    auto start = std::chrono::system_clock::now();
-    while ((std::chrono::system_clock::now() - start) < (std::chrono::duration < double>)sec)
-        continue;
-
-    func(number);
-}
-
-void schedule(std::function<void(std::string, double)> func, std::chrono::seconds sec, std::string text, double number)
-{
-    auto start = std::chrono::system_clock::now();
-    while ((std::chrono::system_clock::now() - start) < (std::chrono::duration < double>)sec)
-        continue;
-
-    func(text, number);
-}
 
 int main() {
     using namespace std::chrono_literals;
