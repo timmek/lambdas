@@ -3,7 +3,6 @@
 #include <iostream>
 #include <string>
 #include "schedule.hpp"
-#include <functional>
 
 // Napisz funkcję schedule(), która przyjmuje dwa parametry:
 //   Pierwszy parametr to dowolną funkcję func, która nie przyjmuje żadnego argumentu i nic nie zwraca
@@ -13,7 +12,7 @@
 // Na gałęzi schedule masz już gotowy szkielet do tej aplikacji. Tam dostarcz swój kod.
 
 // Bonus: zaimplementuj schedule jako funkcję szablonową. Wystarczy wtedy tylko jedna jej wersja, bez żadnych przeciążeń.
-// Uwaga, 
+// Uwaga, to trudne zadanie na tym etapie kursu!
 
 int main() {
     using namespace std::chrono_literals;
