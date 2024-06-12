@@ -1,3 +1,5 @@
+#include "schedule.hpp"
+
 void schedule( std::function<void()> func, std::chrono::seconds sec)
 {
     auto start = std::chrono::system_clock::now();
