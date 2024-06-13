@@ -19,7 +19,7 @@ jobs:
         make
     - name: Run tests
       working-directory: ${{ env.path }}
-      run: ctest -V
+      run: ./schedule-ut
 
   formatting-check:
     runs-on: ubuntu-latest
