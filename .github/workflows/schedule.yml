@@ -16,7 +16,7 @@ jobs:
       working-directory: ${{ env.path }}
       run: |
         cmake ..
-        make
+        make schedule-ut
     - name: Run tests
       working-directory: ${{ env.path }}
       run: ./schedule-ut
